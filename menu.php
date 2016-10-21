@@ -3,34 +3,38 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">MOTOCONTROL</a>
+            <a class="navbar-brand" href="#"  style="color: #00008B">MOTOCONTROL</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Inicio</a></li>
+              <li class="active"><a href="http://localhost/motocontrol">Inicio</a></li>
+
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entregadores <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                <li><a href="index.php?menu=1">Cadastro</a></li>
+                  <li><a href="main.php?menu=1">Cadastro</a></li>
                   <li><a href="listaEntregadores.php">Listagem</a></li>
                 </ul>
               </li>
 
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspoup="true" aria-expanded="false">Clientes <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
+                  <li><a href="main.php?menu=2">Cadastro</a></li>
+                  <li><a href="listaClientes.php">Listagem</a></li>
                 </ul>
+              </li>
+              <li>
+              <?php
+              $name = "usuário não logado";
+              if(isset($_SESSION['name'])){
+                $name = $_SESSION['name'];
+              }
+              ?>
+              <p class="navbar-text"> <?php echo "Olá $name!"; ?> <a href='logout.php'> Clique aqui para sair! </a> </p> 
               </li>
             </nav>

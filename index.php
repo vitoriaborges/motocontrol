@@ -1,53 +1,74 @@
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-    <title>Tela Principal</title>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Tela de Login</title>
 
-    <!-- Bootstrap core CSS -->
-     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <?php 
 
-    <!-- Custom styles for this template -->
-    <link href="navbar.css" rel="stylesheet">
+  include ('header.php'); 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+  $msgText = "mensagem não especificada";
+  $tipoMsg = "";
+
+  if(isset($_GET['msgCode'])){
+    $tipoMsg = true;
+    switch ($_GET['msgCode']) {
+      case 1:
+        $msgText = "Usuário não autenticado!";
+        $tipoMsg = "erro";
+        break;
+      case 2:
+        $msgText = "Usuário e/ou senha inválidos!";
+        $tipoMsg = "erro";
+        break;
+      case 3: 
+        $msgText = "Usuário desconectado com sucesso!";
+        $tipoMsg = "msg";
+      default:
+        break;
+    }
+  }
 
 
-  </head>
+  ?>
 
-<?php
-	include('menu.html');
+</head>
 
-	if(!($_SERVER['REQUEST_METHOD'] === 'POST')){
+<body>
+	
+  <div class="container">
 
-		if(!isset($_GET['menu'])){
-			include('main.html');
-		}else{			
-			switch ($_GET['menu']){
-				case 1:
-					include('cadastroEntregadores.php');
-					break;					
-				case 2:
-					echo 'É 2';
-					break;	
-				case 3:
-					echo 'É 3';
-					break;					
-				default:
-					echo 'Menu inválido!';
-					break;
-			}
-		}
+    <form class="form-signin" data-toggle="validator" role="form" action="login.php" method="post" >
+      <h2 class="form-signin-heading">MOTOCONTROL</h2>
+      <label for="user" class="sr-only">Username</label>
+      <input type="text" name="user" id="user" class="form-control" placeholder="Username" required autofocus>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" name="password" id="user" class="form-control" placeholder="Password" required>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <br />
 
-	}else{
-		echo 'É post!';
-	}
+      <?php if(strcasecmp($tipoMsg, "erro") == 0) { ?>
 
-?>
+        <div class="alert alert-danger">
+          <strong>Erro!</strong> <?php echo $msgText; ?>
+        </div>
+
+      <?php } elseif(strcasecmp($tipoMsg, "msg") == 0){ ?>
+
+        <div class="alert alert-info">
+          <strong>Aviso!</strong> <?php echo $msgText; ?>
+        </div>
+
+      <?php } ?>
+
+    </form>
+
+  </div>
+
+</body>
 </html>

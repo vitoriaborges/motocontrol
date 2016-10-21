@@ -1,72 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
- <meta charset="utf-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Cadastro Clientes</title>
- 
- 
- <script src="js/jquery.js"></script>
- <script src="js/bootstrap.min.js"></script>
- <script src="js/validator.min.js"></script>
-
- <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
- <link href="bootstrap/css/style.css" rel="stylesheet">
+  <title>Cadastro Clientes</title>
+      <script type="text/javascript">
+            $(function () {
+                $('#datepicker').datetimepicker();
+            });
+        </script>
 </head>
 <body>
-	
-	  <a class="navbar-brand">MOTOCONTROL</a> 
-   </div>
-   <a class="navbar-brand">cadastro de clientes</a>
-   <div id="navbar" class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-right">
-     <li><a href="tcc1.html">In&iacute;cio</a></li>
-     <li><a href="#">Op&ccedil;&otilde;es</a></li>
-     <li><a href="#">Perfil</a></li>
-     <li><a href="#">Ajuda</a></li>
-    </ul>
-   </div>
-  </div>
- </nav> 
- 
  	
+  <div class="form-group col-md-4">
 	<form action="tcc1.html">
-  	<div class="row">
-  	  <div class="form-group col-md-4">
+  	 <div class="input-group">
   	  	<label for="name">Nome</label>
-  	  	<input type="text" class="form-control" id="name">
+  	  	<input type="text" class="form-control" id="name" size="60">
   	  </div>
-	 </div>
-	 
-	 <form action="tcc1.html">
-  	<div class="row">
-  	  <div class="form-group col-md-4">
+
+	    <div class="input-group">
   	  	<label for="end">Endereço</label>
   	  	<input type="text" class="form-control" id="end" placeholder="">
   	  </div>
-	 </div>
 	 
-	 <form action="tcc1.html">
-  	<div class="row">
-  	  <div class="form-group col-md-4">
+        <div class="input-group">
   	  	<label for="tel">Telefone</label>
   	  	<input type="text" class="form-control" id="tel" placeholder="(xxx)xxxx-xxxx">
   	  </div>
-	 </div>
 	 
-	 <form action="tcc1.html">
-  	<div class="row">
-  	  <div class="form-group col-md-4">
+	      <div class="input-group">
   	  	<label for="cnpj">CNPJ</label>
   	  	<input type="text" class="form-control" id="cnpj" placeholder="00.000.000/0000-00">
   	  </div>
-	 </div>
 	
 		<hr />
 	
-	<div class="row">
-	  <div class="col-md-12">
+	    <div class="input-group">
 	  	<button  type="submit" class="btn btn-primary">Salvar</button>
 		<a href="tcc1.html" class="btn btn-default">Cancelar</a>
 	  </div>

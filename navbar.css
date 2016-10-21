@@ -3,10 +3,13 @@ body {
   padding-bottom: 20px;
 }
 
-h1  {
-	color: #000080;
+ h1 {
+	color: #00008B;
 }
 
+
+
 .navbar {
-  margin-bottom: 20px;
+  /*margin-bottom: 100px;*/
+	margin-top: 0px;
 }

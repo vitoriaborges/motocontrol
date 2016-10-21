@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
+    <?php include ('checklogin.php'); ?>
+
+
  <title>Cadastro de Entregadores</title>
          <script type="text/javascript">
             $(function () {
@@ -44,8 +48,8 @@
     <hr />
 
     <div class="input-group">
-      <button  type="submit" class="btn btn-primary">Salvar</button>
-      <a href="tcc1.html" class="btn btn-default">Cancelar</a>
+      <button  type="submit" class="btn btn-primary" >Salvar</button>
+      <a href="tcc1.html" class="btn btn-default" >Cancelar</a>
     </div>
 
   </div>
