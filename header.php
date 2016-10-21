@@ -10,7 +10,9 @@
     <link href="navbar.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    <link href="bootstrap/css/style.css" rel="stylesheet">
+
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

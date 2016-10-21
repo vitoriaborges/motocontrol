@@ -46,10 +46,10 @@
       <input type="password" name="password" id="user" class="form-control" placeholder="Password" required>
       <div class="checkbox">
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me"> Lembrar usuario
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
       <br />
 
       <?php if(strcasecmp($tipoMsg, "erro") == 0) { ?>

@@ -35,6 +35,6 @@
                 $name = $_SESSION['name'];
               }
               ?>
-              <p class="navbar-text"> <?php echo "Olá $name!"; ?> <a href='logout.php'> Clique aqui para sair! </a> </p> 
+              <p class="navbar-text"> <?php echo "Olá $name!"; ?> <a href='logout.php'> Clique aqui para sair</a> </p> 
               </li>
             </nav>
