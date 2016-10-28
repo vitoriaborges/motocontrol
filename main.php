@@ -25,8 +25,14 @@
 					include('cadastroEntregadores.php');
 					break;					
 				case 2:
+					include('listagemEntregadores.php');
+					break;
+				case 3:
 					include('cadastroCli.html');
 					break;	
+				case 4:
+					include('listagemClientes.php');
+					break;
 				default:
 					echo 'Menu inválido!';
 					break;

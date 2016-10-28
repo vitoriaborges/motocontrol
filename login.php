@@ -1,15 +1,14 @@
 <head>
 	<?php
 
-	$validUser = "anderson";
-	$validPassword = "111";
-	$name = "Anderson Padilha";
+	require_once '/model/Login.php';
 
 	if(isset($_POST['user'])){
-		if((strcasecmp($_POST['user'], $validUser) == 0) and (strcasecmp($_POST['password'], $validPassword) == 0)){
+		$login = new Login($_POST['user'], $_POST['password']);
+		if($login->checkLogin()){
 			session_start();
-			$_SESSION['name'] = $name;
-			$_SESSION['user'] = $validUser;
+			$_SESSION['name'] = $login->getNome();
+			$_SESSION['user'] = $login->getUser();
 			header("location:main.php");
 		}else{
 			session_destroy();

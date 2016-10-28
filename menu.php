@@ -11,21 +11,21 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="http://localhost/motocontrol">Inicio</a></li>
+              <li class=""><a href="http://localhost/motocontrol/main.php">Inicio</a></li>
 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entregadores <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="main.php?menu=1">Cadastro</a></li>
-                  <li><a href="listaEntregadores.php">Listagem</a></li>
+                  <li><a href="main.php?menu=2">Listagem</a></li>
                 </ul>
               </li>
 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspoup="true" aria-expanded="false">Clientes <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="main.php?menu=2">Cadastro</a></li>
-                  <li><a href="listaClientes.php">Listagem</a></li>
+                  <li><a href="main.php?menu=3">Cadastro</a></li>
+                  <li><a href="main.php?menu=4">Listagem</a></li>
                 </ul>
               </li>
               <li>

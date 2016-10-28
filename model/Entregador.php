@@ -81,16 +81,16 @@ Class Entregador{
  			if($upd){
  				print ("Entregador atualizado!");
  			}else{
- 				print("########### Deu erro<br>")
+ 				print("########### Deu erro<br>");
  				print($c->error);
  			}
  		}
 
- 		function list($busca){
+ 		function lista($busca){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			$list = $c->query("Select * from Entregadores");
- 			echo $list;
+ 			$lista = $c->query("Select * from Entregadores");
+ 			echo $lista;
  		}
 
  		function delete(){
@@ -100,7 +100,7 @@ Class Entregador{
  			if($del){
  				print ("Apagou o Entregador");
  			}else{
- 				print("########### Deu erro<br>")
+ 				print("########### Deu erro<br>");
  				print($c->error);
  			}
  		}

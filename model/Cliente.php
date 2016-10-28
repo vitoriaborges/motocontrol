@@ -65,16 +65,16 @@ Class Cliente{
  			if($upd){
  				print ("Cliente atualizado!");
  			}else{
- 				print("########### Deu erro<br>")
+ 				print("########### Deu erro<br>");
  				print($c->error);
  			}
  		}
 
- 		function list($busca){
+ 		function lista($busca){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			$list = $c->query("Select * from Clientes");
- 			echo $list;
+ 			$lista = $c->query("Select * from Clientes");
+ 			echo $lista;
  		}
 
  		function delete(){
@@ -84,7 +84,7 @@ Class Cliente{
  			if($del){
  				print ("Apagou o cliente");
  			}else{
- 				print("########### Deu erro<br>")
+ 				print("########### Deu erro<br>");
  				print($c->error);
  			}
  		}
