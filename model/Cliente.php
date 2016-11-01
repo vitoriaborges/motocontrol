@@ -7,8 +7,10 @@ Class Cliente{
 		private $Idcliente;
  		private $Nome;
  		private $Endereco;
+ 		private $Cep;
  		private $Telefone;
  		private $Cnjp;
+
 
  	public function setIdcliente($i){
  		$this->Idcliente=$i;
@@ -31,6 +33,13 @@ Class Cliente{
 		return $this->Endereco;
 	}
 
+	public function setCep($cep){
+		$this->Cep=$cep;
+	}
+	public function getCep(){
+		return $this->Cep;
+	}
+
 	public function setTelefone($t){
 		$this->Telefone=$t;
 	}
@@ -49,7 +58,7 @@ Class Cliente{
  		function create(){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			$ins = $c->query("insert into Clientes(Nome, Endereco, Telefone, Cnpj) values ('".$this->Nome."','".$this->Endereco."','".$this->Telefone."','".$this->Cnjp."')");
+ 			$ins = $c->query("insert into Clientes(Nome, Endereco, Cep, Telefone, Cnpj) values ('".$this->Nome."','".$this->Endereco."','".$this->Cep."','".$this->Telefone."','".$this->Cnjp."')");
  			if($ins){
  				print ("Inseriu o cliente");
  			}else{
@@ -61,7 +70,7 @@ Class Cliente{
  		function save(){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			$upd = $c->query("update Clientes set Nome=$this->Nome, Endereco=$this->Endereco, Telefone=$this->Telefone, Cnjp=$this->Cnjp where Idcliente=$this->Idcliente");
+ 			$upd = $c->query("update Clientes set Nome=$this->Nome, Endereco=$this->Endereco, Cep=$this->Cep, Telefone=$this->Telefone, Cnjp=$this->Cnjp where Idcliente=$this->Idcliente");
  			if($upd){
  				print ("Cliente atualizado!");
  			}else{

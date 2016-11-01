@@ -18,27 +18,27 @@
     <form action="controllers/EntregadorController.php">
        <div class="input-group">
         <label for="name">Nome</label> 
-        <input type="text" class="form-control" id="name" name="name" size="60">
+        <input type="text" class="form-control" id="name" name="name" size="60" required autofocus>
       </div>
 
       <div class="input-group">
         <label for="rg">RG</label>
-        <input type="text" class="form-control" id="rg" name="rg" placeholder="9999999999">
+        <input type="text" class="form-control" id="rg" name="rg" placeholder="9999999999" required autofocus>
       </div>
 
       <div class="input-group">
         <label for="cnh">CNH</label>
-        <input type="text" class="form-control" id="cnh" name="cnh" placeholder="00000000000">
+        <input type="text" class="form-control" id="cnh" name="cnh" placeholder="00000000000" required autofocus>
       </div>
 
       <div class="input-group">
         <label for="cpf">CPF</label>
-        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
+        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required autofocus>
       </div>
 
       <label for="dt_nasc">Data de Nascimento</label>
       <div class="input-group date col-md-2" id="datepicker">
-        <input type="date" class="form-control" id="dt_nasc" name="dt_nasc" size="5">
+        <input type="date" class="form-control" id="dt_nasc" name="dt_nasc" size="5" required autofocus>
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
         </span>

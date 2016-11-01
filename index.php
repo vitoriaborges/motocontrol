@@ -5,7 +5,7 @@
 
   <?php 
 
-  include ('header.php'); 
+  include ('header.php');
 
   $msgText = "mensagem não especificada";
   $tipoMsg = "";

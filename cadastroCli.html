@@ -14,22 +14,28 @@
   <form action="controllers/ClienteController.php" method="post">
     <div class="input-group">
       <label for="name">Nome</label>
-      <input type="text" class="form-control" id="name" name="name" size="60">
+      <input type="text" class="form-control" id="name" name="name" size="60" required autofocus>
     </div>
 
     <div class="input-group">
       <label for="end">Endereço</label>
-      <input type="text" class="form-control" id="end" name="end" placeholder="">
+      <input type="text" class="form-control" id="end" name="end" placeholder="" required autofocus>
+    </div>
+
+    <div class="input-group">
+      <label for="cep">Cep</label>
+      <input type="text" class="form-control" id="cep" name="cep" placeholder="xxxxx-xx" required autofocus>
     </div>
 
     <div class="input-group">
       <label for="tel">Telefone</label>
-      <input type="text" class="form-control" id="tel" name="tel" placeholder="(xxx)xxxx-xxxx">
+      <input type="text" class="form-control" id="tel" name="tel" placeholder="(xxx)xxxx-xxxx" required autofocus>
     </div>
+
 
     <div class="input-group">
       <label for="cnpj">CNPJ</label>
-      <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00">
+      <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required autofocus>
     </div>
 
     <hr />
@@ -38,6 +44,7 @@
       <button  type="submit" class="btn btn-primary">Salvar</button>
       <button type="reset" class="btn btn-default">Cancelar </button>
     </div>
+    <input type="hidden" name="op" value="ins">
   </form>
 </div>
 
