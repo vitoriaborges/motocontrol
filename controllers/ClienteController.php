@@ -23,8 +23,12 @@ if ($op == 'ins'){
 }else if ($op == 'upd'){
 	$cli = new Cliente();
 
+
+
 }else if ($op == 'lista') {
 	$cli = new Cliente();
+	$cli->lista($_POST['entregador']);
+
 
 }else if ($op == 'del'){
 	$cli = new Cliente();

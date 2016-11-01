@@ -11,8 +11,11 @@
       <div class="col-lg-8">
         <div class="input-group">
           <span class="input-group-btn">
-            <input type="text" class="form-control" placeholder="Buscar entregador...">
-            <button class="btn btn-default" type="button">Pesquisar</button>
+          <form action="controllers/ClienteController.php" method="post">
+            <input type="hidden" id="op" name="op" value="lista">
+            <input type="text" class="form-control" name="entregador" placeholder="Buscar entregador...">
+            <button class="btn btn-default" type="submit">Pesquisar</button>
+          </form>
           </span>
         </div>
       </div>
@@ -67,8 +70,8 @@
                         <input type="hidden" id="op" name="op" value="del">
                         <input type="hidden" name="id" value="1001">
                       </form>
-                        <a class="btn btn-warning btn-xs" href="controllers/ClienteController.php?op=upd&id=1001">Editar</a>
-                        <a class="btn btn-danger btn-xs"  href="controllers/ClienteController.php?op=del&id=5" >Excluir</a>
+                        <a class="btn btn-warning btn-xs" href="http://localhost/motocontrol/controllers/ClienteController.php?op=del&id=3">Editar</a>
+                        <a class="btn btn-danger btn-xs"  href="http://localhost/motocontrol/controllers/ClienteController.php?op=del&id=3" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                     </td>
                 </tr>
             </tbody>

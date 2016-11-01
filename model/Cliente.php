@@ -82,8 +82,16 @@ Class Cliente{
  		function lista($busca){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			$lista = $c->query("Select * from Clientes");
- 			echo $lista;
+ 			echo $busca;
+ 			$lista = $c->query("Select * from Clientes where nome like '$busca%' ");
+ 			if($lista){
+			    while ($row = $lista->fetch_assoc()){
+			        echo '<br /><pre>';
+			        print_r($row);
+			        echo '</pre>';
+			    }
+			    $lista->free();
+			}
  		}
 
  		function delete(){
