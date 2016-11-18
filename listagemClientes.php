@@ -11,10 +11,12 @@
       <div class="col-lg-8">
         <div class="input-group">
           <span class="input-group-btn">
+
           <form action="controllers/ClienteController.php" method="post">
             <input type="hidden" id="op" name="op" value="lista">
-            <input type="text" class="form-control" name="entregador" placeholder="Buscar entregador...">
+            <input type="text" class="form-control" name="cliente" placeholder="Buscar cliente...">
             <button class="btn btn-default" type="submit">Pesquisar</button>
+      
           </form>
           </span>
         </div>
@@ -24,23 +26,16 @@
   
   <br>
   <br>
+    <?php 
 
-<!-- Modal -->
-<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
-            </div>
-            <div class="modal-body">Deseja realmente excluir este item? </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Sim</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
-            </div>
-        </div>
-    </div>
-</div>
+      if (isset($_SESSION['mensagem'])) {
+        echo "<div class='alert alert-info'>";
+          echo "<strong>Aviso!</strong> ".$_SESSION['mensagem'];
+        echo "</div>";
+      }
+      $_SESSION['mensagem'] = null;
+    ?>    
+
 
 <!--TABELA-->
 <div id="list" class="row">
@@ -58,25 +53,36 @@
                  </tr>
             </thead>
             <tbody>
+            <?php 
+            if (isset($_SESSION['rows'])) {
+              $rows = $_SESSION['rows'];
+
+              foreach ($rows as $r) { ?>
+
                 <tr>
-                    <td>1001</td>
-                    <td>Sashiburi</td>
-                    <td>Av. Pereira Passos</td>
-                    <td>91900-200</td>
-                    <td>(51) 3222-1400</td>
-                    <td>06.312.985/0001-77</td>
-                    <td class="actions">
-                      <form method="post">
-                        <input type="hidden" id="op" name="op" value="del">
-                        <input type="hidden" name="id" value="1001">
-                      </form>
-                        <a class="btn btn-warning btn-xs" href="http://localhost/motocontrol/controllers/ClienteController.php?op=del&id=3">Editar</a>
-                        <a class="btn btn-danger btn-xs"  href="http://localhost/motocontrol/controllers/ClienteController.php?op=del&id=3" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                    </td>
-                </tr>
+                    <td><?php print_r($r['idcliente']) ?></td>  
+                    <td><?php print_r($r['nome']) ?></td> 
+                    <td><?php print_r($r['endereco']) ?></td>  
+                    <td><?php print_r($r['cep']) ?></td>  
+                    <td><?php print_r($r['telefone']) ?></td>
+                    <td><?php print_r($r['cnpj']) ?></td>   
+          
+                      <td class="actions">
+                          <a class="btn btn-success btn-xs" href="#">Visualizar</a>
+                          <a class="btn btn-warning btn-xs" href="#">Editar</a>
+                          <a class="btn btn-danger btn-xs"  href="./controllers/ClienteController.php?op=del&id=<?php print_r($r['idcliente']) ?>" >Excluir</a>
+
+                      </td>
+                  </tr>
+      <?php   
+              }
+            $_SESSION['rows'] = null;
+            } else{
+                echo "<tr><td>Informa parametros para pesquisa</td></tr>";
+            }
+      ?>
             </tbody>
          </table>
- 
      </div>
  </div> 
 </body>

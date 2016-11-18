@@ -33,6 +33,9 @@
 				case 4:
 					include('listagemClientes.php');
 					break;
+				case 5:
+					include('frequencia.html');
+					break;
 				default:
 					echo 'Menu inválido!';
 					break;
@@ -43,6 +46,5 @@
 		echo 'É post!';
 	}
 ?>
-
   </body>
 </html>

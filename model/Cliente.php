@@ -11,7 +11,6 @@ Class Cliente{
  		private $Telefone;
  		private $Cnjp;
 
-
  	public function setIdcliente($i){
  		$this->Idcliente=$i;
  	}
@@ -61,6 +60,8 @@ Class Cliente{
  			$ins = $c->query("insert into Clientes(Nome, Endereco, Cep, Telefone, Cnpj) values ('".$this->Nome."','".$this->Endereco."','".$this->Cep."','".$this->Telefone."','".$this->Cnjp."')");
  			if($ins){
  				print ("Inseriu o cliente");
+ 				$id = mysqli_insert_id($c);
+ 				header("location:../main.php?menu=3&idcli=$id");
  			}else{
  				print("########### Deu erro<br>");
  				print($c->error);
@@ -83,33 +84,28 @@ Class Cliente{
  			$conn = new DbConn();
  			$c = $conn->getConn();
  			echo $busca;
- 			$lista = $c->query("Select * from Clientes where nome like '$busca%' ");
- 			if($lista){
-			    while ($row = $lista->fetch_assoc()){
-			        echo '<br /><pre>';
-			        print_r($row);
-			        echo '</pre>';
-			    }
-			    $lista->free();
+ 			$lista = $c->query("Select * from Clientes where nome like '%$busca%' ");
+			$rows = array();
+			while($r = mysqli_fetch_assoc($lista)) {
+			    $rows[] = $r;
 			}
+			session_start();
+			$_SESSION['rows'] = $rows;
+			header("location:../main.php?menu=4");
+
  		}
 
  		function delete(){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			$del = $c->query("delete from Clientes where Idcliente = $this->Idcliente");
- 			if($del){
- 				print ("Apagou o cliente");
+ 			$del = $c->query("delete from Clientes where Idcliente = ".$this->Idcliente);
+ 			if($del === TRUE){
+				session_start();
+				$_SESSION['mensagem'] = "Cliente removido com sucesso!";
+				header("location:../main.php?menu=4");
  			}else{
  				print("########### Deu erro<br>");
  				print($c->error);
  			}
  		}
- 	
-
-
-
-
  	}
-
-?>

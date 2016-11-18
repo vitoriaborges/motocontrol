@@ -9,7 +9,6 @@ if (isset($_POST['op'])){
 	$id = $_GET['id'];
 }
 
-
 if ($op == 'ins'){
 
 	$cli = new Cliente();
@@ -27,7 +26,8 @@ if ($op == 'ins'){
 
 }else if ($op == 'lista') {
 	$cli = new Cliente();
-	$cli->lista($_POST['entregador']);
+	$cli->lista($_POST['cliente']);
+ 			
 
 
 }else if ($op == 'del'){

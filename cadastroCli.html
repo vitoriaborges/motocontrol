@@ -10,6 +10,13 @@
 </head>
 <body>
 
+<?php 
+  if(isset($_GET['idcli'])){
+    // busca o cliente pelo ID
+  }
+
+?>
+
   <div class="form-group col-md-4">
   <form action="controllers/ClienteController.php" method="post">
     <div class="input-group">
@@ -40,29 +47,30 @@
 
     <hr />
 
-        <!-- Modal -->
-<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+    <!-- MODAL -->
+    <div class="modal fade" id="insert-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="modalLabel">Mensagem de Confirmação</h4>
             </div>
-            <div class="modal-body">Cliente inserido com sucesso!</div>
+           <div class="modal-body">Cliente inserido com sucesso!</div> 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">OK</button>
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>-->
+                <input type="hidden" name="op" value="ins">
             </div>
+
         </div>
     </div>
-</div>
-
+  </div>
 
     <div class="input-group">
-      <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-modal">Salvar</button>
+      <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#insert-modal">Salvar</button>
       <button type="reset" class="btn btn-default">Cancelar </button>
+      <input type="hidden" name="op" value="ins">
     </div>
-    <input type="hidden" name="op" value="ins">
+
   </form>
 </div>
 

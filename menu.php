@@ -29,6 +29,15 @@
                 </ul>
               </li>
               <li>
+
+               <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspoup="true" aria-expanded="false">Controle de Frequência<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Cadastro</a></li>
+                  <li><a href="main.php?menu=5">Tabela</a></li>
+                </ul>
+              </li>
+              <li>
               <?php
               $name = "usuário não logado";
               if(isset($_SESSION['name'])){

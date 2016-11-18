@@ -67,7 +67,9 @@ Class Entregador{
  			$c = $conn->getConn();
  			$ins = $c->query("insert into Entregadores(Nome, Rg, Cnh, Cpf, Dt_nascimento, Valor_diaria) values ('".$this->Nome."','".$this->Rg."','".$this->Cnh."','".$this->Cpf."','".$this->Dt_nascimento."','".$this->Valor_diaria."')");
  			if($ins){
- 				print ("Inseriu o funcionario");
+ 				print ("Inseriu o cliente");
+ 				$id = mysqli_insert_id($c);
+ 				header("location:../main.php?menu=1&idcli=$id");
  			}else{
  				print("########### Deu erro<br>");
  				print($c->error);
@@ -89,8 +91,19 @@ Class Entregador{
  		function lista($busca){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			$lista = $c->query("Select * from Entregadores");
  			echo $lista;
+ 			$lista = $c->query("Select * from Entregadores where nome like '%$busca%' ");
+			$rows = array();
+			while($r = mysqli_fetch_assoc($lista)) {
+			    $rows[] = $r;
+			}
+			session_start();
+			$_SESSION['rows'] = $rows;
+			header("location:../main.php?menu=2");
+
+ 		}
+ 	
+
  		}
 
  		function delete(){
@@ -106,6 +119,5 @@ Class Entregador{
  		}
 
  	
- 	}
-
+ 
 ?>

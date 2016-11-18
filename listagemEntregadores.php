@@ -8,13 +8,19 @@
   <title>Entregadores</title>
 </head>
 <body>
+
   <div class="form-group col-md-4">
     <div class="row">
       <div class="col-lg-8">
         <div class="input-group">
           <span class="input-group-btn">
-            <input type="text" class="form-control" placeholder="Buscar entregador...">
-            <button class="btn btn-default" type="button">Pesquisar</button>
+
+          <form action="controllers/EntregadorController.php" method="post">
+            <input type="hidden" id="op" name="op" value="lista">
+            <input type="text" class="form-control" name="entregador" placeholder="Buscar entregador...">
+            <button class="btn btn-default" type="submit">Pesquisar</button>
+
+          </form>
           </span>
         </div>
       </div>
@@ -23,46 +29,62 @@
 
     <br>
     <br>
-    
-     <div style="overflow:hidden;">
-    <div class="form-group">
-        <div class="row">
-            <div class="col-md-8">
-                <div id="datetimepicker"></div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker').datetimepicker({
-                inline: true;
-                sideBySide: true;
-            });
-        });
-    </script>
-</div>
+     <?php 
 
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading"  style="text-align:center">Tabela de Pagamento</div>
+      if (isset($_SESSION['mensagem'])) {
+        echo "<div class='alert alert-info'>";
+          echo "<strong>Aviso!</strong> ".$_SESSION['mensagem'];
+        echo "</div>";
+      }
+      $_SESSION['mensagem'] = null;
+    ?>  
 
-      <!-- Table -->
-      <table class="table">
-       <tr>
-       <th >Nome</th>
-        <th>RG</th> 
-        <th>CNH</th>
-        <th>CPF</th> 
-        <th>Data de Nascimento</th>
-      </tr>
-      <tr>
-        <td>Jorge Castro</td>
-        <td>1548963204</td> 
-        <td>4589630147</td>
-        <td>15423659802</td>
-        <td>11/06/1980</td>
-      </tr>
-   </table>
- </div>-->
+<!--TABELA-->
+<div id="list" class="row">
+    <div class="table-responsive col-md-12">
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>RG</th>
+                    <th>CNH</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                    <th class="actions">Ações</th>
+                 </tr>
+            </thead>
+            <tbody>
+            <?php 
+            if (isset($_SESSION['rows'])) {
+              $rows = $_SESSION['rows'];
 
+              foreach ($rows as $r) { ?>
+
+                <tr>
+                    <td><?php print_r($r['identregador']) ?></td>  
+                    <td><?php print_r($r['nome']) ?></td> 
+                    <td><?php print_r($r['rg']) ?></td>  
+                    <td><?php print_r($r['cnh']) ?></td>  
+                    <td><?php print_r($r['cpf']) ?></td>
+                    <td><?php print_r($r['dt_nascimento']) ?></td>   
+
+                    <td class="actions">
+                        <a class="btn btn-success btn-xs" href='dadosEnt.php'>Visualizar</a>
+                        <a class="btn btn-warning btn-xs" href="#">Editar</a>
+                        <a class="btn btn-danger btn-xs"  href="./controllers/EntregadorController.php?op=del&id=<?php print_r($r['identregador']) ?>">Excluir</a>
+                    </td>
+                </tr>
+        <?php   
+              }
+            $_SESSION['rows'] = null;
+            } else{
+                echo "<tr><td>Informe parametros para pesquisa</td></tr>";
+            }
+         ?>
+            </tbody>
+         </table>
+ 
+     </div>
+ </div> 
 </body>
