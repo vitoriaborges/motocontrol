@@ -11,6 +11,13 @@
     <!-- Custom styles for this template -->
     <link href="bootstrap/css/style.css" rel="stylesheet">
 
+    <!-- DATETIME -->
+   <!-- <link href="bootstrap/css/bootstrap-datetimepicker-standalone.css" rel="stylesheet">-->
+    <link href="bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+    <script src="bootstrap/js/bootstrap-datetimepicker.min.js"></script> 
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

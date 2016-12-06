@@ -4,7 +4,7 @@
 
 Class Entregador{
 
-		private $Identregador;
+		private $IdEntregador;
  		private $Nome;
  		private $Rg;
  		private $Cnh;
@@ -12,10 +12,10 @@ Class Entregador{
  		private $Dt_nascimento;
  		private $Valor_diaria;
  		
- 	public function setIdentregador($e){
+ 	public function setIdEntregador($e){
  		$this->Identregador=$e;
  	}
- 	public function getIdentregador(){
+ 	public function getIdEntregador(){
  		return $this->Identregador;
  	}
  		
@@ -75,11 +75,11 @@ Class Entregador{
  				print($c->error);
  			}
  		}
-
+ 		
  		function save(){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			$upd = $c->query("update Entregadores set Nome=$this->Nome, Rg=$this->Rg, Cnh=$this->Cnh, Cpf=$this->Cpf, Dt_nascimento=$this->Dt_nascimento, Valor_diaria=$this->Valor_diaria where Identregador=$this->Identregador");
+ 			$upd = $c->query("update Entregadores set Nome='".$this->Nome."', Rg='".$this->Rg."', Cnh='".$this->Cnh."', Cpf='".$this->Cpf."', Dt_nascimento='".$this->Dt_nascimento."', Valor_diaria='".$this->Valor_diaria."' where Identregador=$this->Identregador");
  			if($upd){
  				print ("Entregador atualizado!");
  			}else{
@@ -91,8 +91,8 @@ Class Entregador{
  		function lista($busca){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			echo $lista;
- 			$lista = $c->query("Select * from Entregadores where nome like '%$busca%' ");
+ 			echo $busca;
+ 			$lista= $c->query("Select * from Entregadores where nome like '%$busca%' ");
 			$rows = array();
 			while($r = mysqli_fetch_assoc($lista)) {
 			    $rows[] = $r;
@@ -102,22 +102,43 @@ Class Entregador{
 			header("location:../main.php?menu=2");
 
  		}
- 	
 
+		function buscaId($op){
+			$conn = new DbConn();
+			$c = $conn->getConn();
+			$buscaId = $c->query("Select * from Entregadores where Identregador = ".$this->Identregador);
+			$rows = array();
+
+			if (!$buscaId) {
+				die("Erro: " .$c->error);
+			}
+			while($r = mysqli_fetch_assoc($buscaId)) {
+				$rows[] = $r;
+			}if ($op == 'mostra') {
+				header("location:../main.php?menu=10");
+			}else{
+				header("location:../main.php?menu=7");
+			}
+			session_start();
+			$_SESSION['rows'] = $rows;
+			
  		}
+	
 
  		function delete(){
  			$conn = new DbConn();
  			$c = $conn->getConn();
- 			$del = $c->query("delete from Entregadores where Identregador = $this->Identregador");
- 			if($del){
- 				print ("Apagou o Entregador");
+ 			$del = $c->query("delete from Entregadores where Identregador = ".$this->Identregador);
+
+ 			if($del == TRUE){
+ 				 print_r("###############");
+ 				session_start();
+				$_SESSION['mensagem'] = "Entregador removido com sucesso!";
+				header("location:../main.php?menu=2");
  			}else{
  				print("########### Deu erro<br>");
  				print($c->error);
  			}
  		}
-
- 	
- 
+	 }	
 ?>

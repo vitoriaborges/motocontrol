@@ -7,7 +7,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"  style="color: #00008B">MOTOCONTROL</a>
+            <a href="main.php"class="navbar-brand" href="#"  style="color: #00008B">MOTOCONTROL</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">

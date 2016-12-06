@@ -3,12 +3,9 @@
 <head>
 
   <?php include ('checklogin.php'); ?>
-
-
-  <title>Entregadores</title>
+  <title>Clientes</title>
 </head>
 <body>
-
   <div class="form-group col-md-4">
     <div class="row">
       <div class="col-lg-8">
@@ -19,16 +16,16 @@
             <input type="hidden" id="op" name="op" value="lista">
             <input type="text" class="form-control" name="entregador" placeholder="Buscar entregador...">
             <button class="btn btn-default" type="submit">Pesquisar</button>
-
           </form>
           </span>
         </div>
       </div>
     </div>
   </div>
+  
+  <br>
+  <br>
 
-    <br>
-    <br>
      <?php 
 
       if (isset($_SESSION['mensagem'])) {
@@ -70,8 +67,8 @@
                     <td><?php print_r($r['dt_nascimento']) ?></td>   
 
                     <td class="actions">
-                        <a class="btn btn-success btn-xs" href='dadosEnt.php'>Visualizar</a>
-                        <a class="btn btn-warning btn-xs" href="#">Editar</a>
+                        <a class="btn btn-success btn-xs" href="./controllers/EntregadorController.php?op=mostra&id=<?php print_r($r['identregador']) ?>">Visualizar</a>
+                        <a class="btn btn-warning btn-xs" href="./controllers/EntregadorController.php?op=edita&id=<?php print_r($r['identregador']) ?>">Editar</a>
                         <a class="btn btn-danger btn-xs"  href="./controllers/EntregadorController.php?op=del&id=<?php print_r($r['identregador']) ?>">Excluir</a>
                     </td>
                 </tr>

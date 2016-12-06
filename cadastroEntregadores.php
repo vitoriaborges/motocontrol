@@ -14,7 +14,7 @@
 <body>
 
 <?php 
-  if(isset($_GET['ident'])){
+  if(isset($_GET['identregador'])){
     // busca o cliente pelo ID
   }
 

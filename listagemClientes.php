@@ -16,7 +16,6 @@
             <input type="hidden" id="op" name="op" value="lista">
             <input type="text" class="form-control" name="cliente" placeholder="Buscar cliente...">
             <button class="btn btn-default" type="submit">Pesquisar</button>
-      
           </form>
           </span>
         </div>
@@ -26,7 +25,9 @@
   
   <br>
   <br>
-    <?php 
+  
+
+  <?php 
 
       if (isset($_SESSION['mensagem'])) {
         echo "<div class='alert alert-info'>";
@@ -35,7 +36,6 @@
       }
       $_SESSION['mensagem'] = null;
     ?>    
-
 
 <!--TABELA-->
 <div id="list" class="row">
@@ -66,14 +66,14 @@
                     <td><?php print_r($r['cep']) ?></td>  
                     <td><?php print_r($r['telefone']) ?></td>
                     <td><?php print_r($r['cnpj']) ?></td>   
-          
-                      <td class="actions">
-                          <a class="btn btn-success btn-xs" href="#">Visualizar</a>
-                          <a class="btn btn-warning btn-xs" href="#">Editar</a>
-                          <a class="btn btn-danger btn-xs"  href="./controllers/ClienteController.php?op=del&id=<?php print_r($r['idcliente']) ?>" >Excluir</a>
 
+                      <td class="actions">
+                          <a class="btn btn-success btn-xs" href="./controllers/ClienteController.php?op=mostra&id=<?php print_r($r['idcliente']) ?>">Visualizar</a>
+                          <a class="btn btn-warning btn-xs" href="./controllers/ClienteController.php?op=edita&id=<?php print_r($r['idcliente']) ?>">Editar</a>
+                          <a class="btn btn-danger btn-xs" href="./controllers/ClienteController.php?op=del&id=<?php print_r($r['idcliente']) ?>">Excluir</a>
                       </td>
-                  </tr>
+                </tr>
+
       <?php   
               }
             $_SESSION['rows'] = null;

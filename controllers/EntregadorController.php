@@ -19,17 +19,33 @@ if ($op == 'ins'){
 	$ent->setDt_nascimento($_POST['dt_nascimento']);
 	$ent->create();
 
-}else if ($op == 'upd'){
-	$ent = new Entregador;
+}else if ($op == 'upd') {
+	$ent = new Entregador();
+	$ent->setIdEntregador($_POST['identregador']);
+	$ent->setNome($_POST['name']);
+	$ent->setRg($_POST['rg']);
+	$ent->setCnh($_POST['cnh']);
+	$ent->setCpf($_POST['cpf']);
+	$ent->setDt_nascimento($_POST['dt_nascimento']);
+	$ent->save();
 
 }else if ($op == 'lista') {
-	$ent = new Entregador;
+	$ent = new Entregador();
 	$ent->lista($_POST['entregador']);
 
+}elseif ($op == 'edita') {
+	$ent = new Entregador();
+	$ent->setIdEntregador($id);
+	$ent->buscaId();
 
-}else if ($op == 'del'){
-	$ent = new Entregador;
-	$ent->setIdEntregrador($id);
+}else if ($op == 'mostra') {
+	$ent = new Entregador();
+	$ent->setIdEntregador($id);
+	$ent->buscaId($op);
+
+}else if ($op == 'del') {
+	$ent = new Entregador();
+	$ent->setIdEntregador($id);
 	$ent->delete();
 }
 
